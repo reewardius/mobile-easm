@@ -39,7 +39,7 @@ for file in *.apk *.xapk; do
 
         # После того как все .apk извлечены, сканируем всю папку
         echo "[*] Сканирование \"$apk_output_dir\"..."
-        nuclei -silent -file -t file/keys -es unknown -o "$apk_output_dir.txt"
+        echo $apk_output_dir | nuclei -silent -file -t file/keys -es unknown -o "$apk_output_dir.txt"
         echo "[+] Готово: \"$apk_output_dir.txt\""
     elif [[ "$file" == *.apk ]]; then
         # Если файл .apk, сразу обрабатываем его
@@ -55,7 +55,7 @@ for file in *.apk *.xapk; do
 
         # После того как .apk извлечен, сканируем всю папку
         echo "[*] Сканирование \"$apk_output_dir\"..."
-        nuclei -silent -file -t file/keys -es unknown -o "$apk_output_dir.txt"
+        echo $apk_output_dir | nuclei -silent -file -t file/keys -es unknown -o "$apk_output_dir.txt"
         echo "[+] Готово: \"$apk_output_dir.txt\""
     fi
 done
