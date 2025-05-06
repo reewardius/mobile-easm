@@ -1,5 +1,6 @@
 #!/bin/bash
 
+cp results.txt results.txt.bkp && rm -f *.txt
 shopt -s nullglob
 
 # Создаём временную папку для .apk из .xapk
@@ -61,3 +62,4 @@ done
 
 # Удаляем временные файлы
 rm -rf "_xapk_temp"
+cat *.txt > results.txt
